@@ -2,20 +2,35 @@ name: PR Labeler
 
 
 on:
+  pull_request:
+    - opened
   pull_request_target:
+    - opened
+    - reopened
+    - synchronized
 
 
 jobs:
   branch:
-    name: Labeler
+    name: Branch Name Labeler
+    if: |
+      github.event_name == 'pull_request' &&
+      github.event.action == 'opened' &&
+      github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
-      - uses: srvaroa/labeler@v0.8
+      - uses: TimonVS/pr-labeler-action@v3
+        with:
+          configuration-path: .github/pr-labeler-branch.yml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  # run-release-drafter:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: release-drafter/release-drafter@v5.15.0
-  #       env:
-  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  file-change:
+    name: File Change Labeler
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/labeler@v3
+        with:
+          configuration-path: .github/pr-labeler-file-change.yml
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          sync-labels: true

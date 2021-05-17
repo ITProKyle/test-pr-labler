@@ -1,0 +1,28 @@
+cloudformation:
+  - any:
+    - "**/templates/*.json"
+    - "**/templates/*.template"
+    - "**/templates/*.yaml"
+    - "**/templates/*.yml"
+
+javascript:
+  - any:
+    - "**/*.js"
+    - package.json
+    - package-lock.json
+
+poetry:
+  - any:
+    - poetry.lock
+    - poetry.toml
+
+python:
+  - any:
+    - "**/*.py"
+    - poetry.lock
+    - pyproject.toml
+    - setup.cfg
+
+workflows:
+  - any:
+    - ".github/workflows/*.yml"
