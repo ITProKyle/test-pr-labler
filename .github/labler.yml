@@ -1,0 +1,21 @@
+version: 1
+
+labels:
+  - label: bug
+    branch: ^(bug|bugfix|fix|hotfix)\/.*
+  - label: cloudformation
+    files:
+      - templates\/.*\.(json|template|yaml|yml)$
+  - label: dependencies
+    branch: ^(depend|dependabot)\/.*
+  - label: maintenance
+    branch: ^(chore|maint|maintain|maintenance)\/.*
+  - label: python
+    files:
+      - .*\.py$
+      - poetry.lock$
+      - pyproject.toml$
+      - setup.cfg$
+  - label: workflows
+    files:
+      - \.github/workflows\/*.\(yaml|yml)$

@@ -7,12 +7,10 @@ on:
 
 jobs:
   branch:
-    name: Branch Name Labeler
+    name: Labeler
     runs-on: ubuntu-latest
     steps:
-      - uses: TimonVS/pr-labeler-action@v3
-        with:
-          configuration-path: .github/pr-labeler-branch.yml
+      - uses: srvaroa/labeler@master@v0.8
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   # run-release-drafter:
