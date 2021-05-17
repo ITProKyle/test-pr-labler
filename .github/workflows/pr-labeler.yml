@@ -6,10 +6,6 @@ on:
     types:
       - opened
   pull_request_target:
-    types:
-      - opened
-      - reopened
-      - synchronized
 
 
 jobs:
@@ -28,7 +24,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   file-change:
     name: File Change Labeler
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request_target'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/labeler@v3
