@@ -1,7 +1,7 @@
 # https://github.com/release-drafter/release-drafter
 autolabeler:
   - label: bug
-    branch: [^(bug|bugfix|fix|hotfix)\/.*]
+    branch: [/^(bug|bugfix|fix|hotfix)\/.*/]
   - label: cloudformation
     files:
       - "**/templates/*.json"
@@ -9,15 +9,15 @@ autolabeler:
       - "**/templates/*.yaml"
       - "**/templates/*.yml"
   - label: dependencies
-    branch: [^(depend|dependabot)\/.*]
+    branch: [/^(depend|dependabot)\/.*/]
   - label: documentation
-    branch: [^(docs)\/.*]
+    branch: [/^(docs)\/.*/]
   - label: feature
-    branch: [^(enhancement|feat|feature)\/.*]
+    branch: [/^(enhancement|feat|feature)\/.*/]
   - label: maintenance
-    branch: [^(chore|maint|maintain|maintenance)\/.*]
+    branch: [/^(chore|maint|maintain|maintenance)\/.*/]
   - label: patch
-    branch: [^(bug|bugfix|fix|hotfix)\/.*]
+    branch: [/^(bug|bugfix|fix|hotfix)\/.*/]
   - label: poetry
     files:
       - poetry.lock
@@ -33,7 +33,7 @@ autolabeler:
       - pyproject.toml
       - setup.cfg
   - label: release
-    branch: [^(release)\/.*]
+    branch: [/^(release)\/.*/]
   - label: vscode
     files:
       - .vscode/*
