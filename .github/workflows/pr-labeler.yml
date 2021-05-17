@@ -3,11 +3,13 @@ name: PR Labeler
 
 on:
   pull_request:
-    - opened
+    types:
+      - opened
   pull_request_target:
-    - opened
-    - reopened
-    - synchronized
+    types:
+      - opened
+      - reopened
+      - synchronized
 
 
 jobs:
