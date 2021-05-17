@@ -58,6 +58,7 @@ categories:
 category-template: >-
   ### $TITLE
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+commitish: master
 exclude-labels:
   - skip-changelog
   - release
