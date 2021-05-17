@@ -8,8 +8,9 @@ cloudformation:
 javascript:
   - any:
     - ./**/*.js
-    - package.json
+    - ./*.js
     - package-lock.json
+    - package.json
 
 poetry:
   - any:
@@ -19,6 +20,7 @@ poetry:
 python:
   - any:
     - ./**/*.py
+    - ./*.py
     - poetry.lock
     - pyproject.toml
     - setup.cfg
